@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/puma/puma.git
+  revision: ac8a9fb49eba9c42a9c18de0b86413383cd93045
+  specs:
+    puma (2.0.1)
+      rack (>= 1.1, < 2.0)
+
+GIT
   remote: git://github.com/rails/rails.git
   revision: faa2c71deef44ded8ef73513e63229d057552540
   specs:
@@ -113,6 +120,7 @@ DEPENDENCIES
   jbuilder (~> 1.0.1)
   jquery-rails
   pg
+  puma!
   rails!
   sass-rails (~> 4.0.0.beta1)
   turbolinks
