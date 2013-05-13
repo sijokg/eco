@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.0.1'
 group :development, :test do
   gem 'debugger'
   gem "capybara", "~> 2.1.0"
+  gem "factory_girl_rails", "~> 4.2.1"
 end
 
 # To use ActiveModel has_secure_password
