@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div>
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>.&nbsp;Not you?&nbsp;
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <% end %>
+</div>
+<%=link_to 'Administration', '#' if current_user.try(:is_admin?)%>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
