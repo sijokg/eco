@@ -43,4 +43,8 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include Features::SessionHelpers, type: :feature
+  #this for getting the login and logout stubbed methods of warden available in acceptance tests
+  include Warden::Test::Helpers
+  Warden.test_mode!
+  #this for getting the login and logout stubbed methods of warden available in acceptance tests
 end
