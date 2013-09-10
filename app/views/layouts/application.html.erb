@@ -1,23 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Eco</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div>
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>.&nbsp;Not you?&nbsp;
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  <% end %>
-</div>
-<%=link_to 'Administration', '#' if current_user.try(:is_admin?)%>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+  	<meta charset="utf-8" />
 
-<%= yield %>
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
-</body>
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "E C O :)" %></title>
+
+  	<%= stylesheet_link_tag    "application" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "E C O", home_index_path %></a></h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="divider"></li>
+      <li><%= link_to "Browse Products" %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Browse  assistance" %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Contact Us" %></li>
+      <li class="divider"></li>
+      <li><%= link_to "About Us" %></li>
+    </ul>
+  </div>
+</nav>
+
+
+   <div class="row">
+    <div class="large-8 columns">
+      <%= yield %>
+    </div>
+    <div class="large-4 columns">
+      <h4>About E C O</h4>
+      <p>Eco ? "Organic Environment Culture" </p>
+      <p>Eco ? "Organic Environment Care"</p>
+    </div>
+    <div class="large-4 columns">
+      <h4>ADV ........</h4>
+
+    </div>
+  </div>
+    
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
