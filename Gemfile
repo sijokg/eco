@@ -12,7 +12,6 @@ gem 'coffee-rails', '4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
 gem 'uglifier', '~> 2.1.2'
 # Gems used only for assets and not required
 # in production environments by default.
