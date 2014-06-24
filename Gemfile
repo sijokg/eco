@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 
 #gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.1'
 
 gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'sass-rails',   '4.0.0'
-gem 'coffee-rails', '4.0.0'
+gem 'sass-rails',   '4.0.3'
+gem 'coffee-rails', '4.0.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+ gem 'therubyracer', '0.11.4', platforms: :ruby
 gem 'uglifier', '~> 2.1.2'
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,7 +27,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.5.0'
 group :development, :test do
-  gem 'debugger'
+  #gem 'debugger'
   gem "capybara"
   gem "factory_girl_rails"
   gem "rspec-rails", "~> 2.14.0"
