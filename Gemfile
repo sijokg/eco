@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 #gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.5'
 
 gem 'pg'
 
@@ -18,7 +18,7 @@ gem 'uglifier', '~> 2.1.2'
 gem 'zurb-foundation'
 
 gem 'jquery-rails'
-gem 'puma', github: "puma/puma"
+gem 'puma'
 gem "devise", "~> 3.0.0"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
