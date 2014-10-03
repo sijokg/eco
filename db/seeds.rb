@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Status.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('statuses')
+Status.create(:name => 'Active')
+Status.create(:name => 'Inactive')
