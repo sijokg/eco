@@ -14,7 +14,7 @@ feature 'Visitor sign in' do
 
   scenario 'with blank password' do
     sign_in user.email, nil
-    expect(page).to have_content('Invalid email or password')
+    expect(page).to have_content('Invalid login or password')
   end
 
   context "As administrator" do
