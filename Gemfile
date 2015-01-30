@@ -34,6 +34,10 @@ group :development, :test do
   gem "guard-rspec"
 end
 
+group :development do
+  gem 'yard'
+end
+
 group :test do
   gem 'simplecov', require: false
 end
