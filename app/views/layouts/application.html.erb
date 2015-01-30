@@ -39,11 +39,21 @@
       <li><%= link_to "Contact Us" %></li>
       <li class="divider"></li>
       <li><%= link_to "About Us" %></li>
+
+
+  <% if user_signed_in? %>
+      <li class="divider"></li>
+     <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+   <% else %>
+     <li class="divider"></li>
+     <li><%= link_to "Sign In", new_user_session_path %></li>
+   <% end %>
     </ul>
   </div>
 </nav>
-
-
+ <% if user_signed_in? %>
+<span class="right" >Signed in as <%= current_user.email %>.&nbsp;Not you?&nbsp;    <%=link_to 'Administration', '#' if current_user.try(:is_admin?)%> </span>
+   <% end %>
    <div class="row">
     <div class="large-8 columns">
       <%= yield %>
