@@ -30,7 +30,7 @@ group :development, :test do
   #gem 'debugger'
   gem "capybara"
   gem "factory_girl_rails"
-  gem "rspec-rails", "~> 2.14.0"
+  gem "rspec-rails", "2.99.0"
   gem "guard-rspec"
 end
 
