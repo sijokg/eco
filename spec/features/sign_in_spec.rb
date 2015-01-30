@@ -4,12 +4,12 @@ feature 'Visitor sign in' do
   let(:user) {create :user }
   scenario 'with valid email and password' do
     sign_in user.email, user.password
-    page.should have_content("Sign out")
+    expect(page).to have_content("Sign out")
   end
 
   scenario 'with invalid email' do
     sign_in 'blah', user.password
-    page.should have_content('Invalid email')
+    expect(page).to have_content('Invalid email')
   end
 
   scenario 'with blank password' do
@@ -21,8 +21,8 @@ feature 'Visitor sign in' do
     let(:user) {FactoryGirl.create(:user, admin: true)}
     scenario 'with valid email and password' do
       sign_in user.email, user.password
-      page.should have_content("Sign out")
-      page.should have_content("Administration")
+      expect(page).to have_content("Sign out")
+      expect(page).to have_content("Administration")
     end
 
   end 

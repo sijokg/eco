@@ -6,7 +6,7 @@ describe User do
       @user = create(:user, admin: true)
     end
     it "should define user as admin user" do
-      @user.is_admin?.should eql true
+      expect(@user.is_admin?).to eql true
     end
   end
 end
