@@ -9,7 +9,7 @@ feature 'Visitor sign in' do
 
   scenario 'with invalid email' do
     sign_in 'blah', user.password
-    expect(page).to have_content('Invalid email')
+    expect(page).to have_content('Invalid login')
   end
 
   scenario 'with blank password' do

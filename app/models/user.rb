@@ -21,4 +21,5 @@ class User < ActiveRecord::Base
       where(conditions.to_h).first
     end
   end
+
 end
