@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 #gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.1'
 
 gem 'pg'
 
@@ -19,7 +19,7 @@ gem 'zurb-foundation'
 
 gem 'jquery-rails'
 gem 'puma'
-gem "devise", "~> 3.0.0"
+gem "devise", '~> 3.4.1'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -32,10 +32,13 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "rspec-rails", "2.99.0"
   gem "guard-rspec"
+  gem 'rspec-its'
+  gem 'rspec-activemodel-mocks'
 end
 
 group :development do
   gem 'yard'
+  gem 'web-console' 
 end
 
 group :test do
