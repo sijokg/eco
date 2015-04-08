@@ -34,6 +34,8 @@ group :development, :test do
   gem "guard-rspec"
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'
+  gem 'spring' # keep application running in the background
+  gem 'spring-commands-rspec'
 end
 
 group :development do
