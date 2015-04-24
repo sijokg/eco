@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140829095012) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "title",       null: false
     t.text     "description"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140829095012) do
   add_index "events", ["name"], name: "index_events_on_name", unique: true, using: :btree
   add_index "events", ["status_id"], name: "index_events_on_status_id", using: :btree
 
-  create_table "participants", force: true do |t|
+  create_table "participants", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "phone_number", limit: 25
     t.string   "email"
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 20140829095012) do
     t.datetime "updated_at"
   end
 
-  create_table "statuses", force: true do |t|
+  create_table "statuses", force: :cascade do |t|
     t.string   "name",        null: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                              default: "", null: false
     t.string   "encrypted_password",                 default: "", null: false
     t.string   "reset_password_token"

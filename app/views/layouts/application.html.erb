@@ -1,74 +1,162 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
   <head>
-  	<meta charset="utf-8" />
-
-  	<!-- Uncomment to make IE8 render like IE7 -->
-  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
-
-  	<!-- Set the viewport width to device width for mobile -->
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  	<title><%= content_for?(:title) ? yield(:title) : "E C O :)" %></title>
-
-  	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Eco" %></title>
     <%= csrf_meta_tags %>
-  </head>
 
-  <body>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
 
-<%= render 'layouts/messages' %>
-<nav class="top-bar">
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "E C O", home_index_path %></a></h1>
-    </li>
-  </ul>
-  <section class="top-bar-section">
-    <ul class="right">
-      <li class="divider"></li>
-      <li><%= link_to "Browse Products" %></li>
-      <li class="divider"></li>
-      <li><%= link_to "Browse  assistance" %></li>
-      <li class="divider"></li>
-      <li><%= link_to "Contact Us" %></li>
-      <li class="divider"></li>
-      <li><%= link_to "About Us" %></li>
+    <%= stylesheet_link_tag "application", :media => "all" %>
 
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
-  <% if user_signed_in? %>
-      <li class="divider"></li>
-     <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-   <% else %>
-     <li class="divider"></li>
-     <li><%= link_to "Sign In", new_user_session_path %></li>
-   <% end %>
-    </ul>
-  </div>
-</nav>
- <% if user_signed_in? %>
-<span class="right" >Signed in as <%= current_user.email %>.&nbsp;Not you?&nbsp;    <%=link_to 'Administration', '#' if current_user.try(:is_admin?)%> </span>
-   <% end %>
-   <div class="row">
-    <div class="large-8 columns">
-      <%= yield %>
-    </div>
-    <div class="large-4 columns">
-      <h4>About E C O</h4>
-      <p>Eco ? "Organic Environment Culture" </p>
-      <p>Eco ? "Organic Environment Care"</p>
-    </div>
-    <div class="large-4 columns">
-      <h4>ADV ........</h4>
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
 
-    </div>
-  </div>
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
     
-    <%= javascript_include_tag "application" %>
-  </body>
+  </head>
+  <body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">ECO :: WORK FOR ECOSYSTEM</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#participate">Participate</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+
+										<% if user_signed_in? %>
+												<li class="page-scroll"></li>
+											 <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+										 <% else %>
+											 <li class="page-scroll"></li>
+											 <li><%= link_to "Sign In", new_user_session_path %></li>
+										 <% end %>
+
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Additional links Grid Section -->
+		<% if user_signed_in? %>
+    <section id="participate">
+        <div class="container">
+            <div class="row">
+
+							<span class="right" >Signed in as <%= current_user.email %>.&nbsp;Not you?&nbsp;    <%=link_to 'Administration', '#' if current_user.try(:is_admin?)%> </span>
+
+            </div>
+        </div>
+    </section>
+
+		<% end %>	
+
+
+
+		<%= yield %>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>Vennala, 682028 Kochi<br>Kerala, India</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>About Eco</h3>
+                        <p>ECO is a free to use, open source Bootstrap themed Social Media website Built in Ruby On Rails</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; eco.in 2015
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+		<%= javascript_include_tag "application" %>
+
+</body>
 </html>

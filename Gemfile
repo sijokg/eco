@@ -15,7 +15,11 @@ gem 'coffee-rails', '4.0.1'
 gem 'uglifier', '~> 2.1.2'
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'zurb-foundation'
+#gem 'zurb-foundation'
+#bootsrap
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+gem 'simple_form'
 
 gem 'jquery-rails'
 gem 'puma'
