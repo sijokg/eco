@@ -41,6 +41,8 @@ end
 group :development do
   gem 'yard'
   gem 'web-console' 
+  gem 'brakeman', require: false
+  gem 'rubocop', require: false
 end
 
 group :test do
