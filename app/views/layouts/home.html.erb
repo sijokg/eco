@@ -59,13 +59,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/#participate">Participate</a>
+                        <a href="#participate">Participate</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/#about">About</a>
+                        <a href="#about">About</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/#contact">Contact</a>
+                        <a href="#contact">Contact</a>
                     </li>
 
 										<% if user_signed_in? %>
@@ -83,35 +83,21 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+		<% if user_signed_in? %>
+		<div class="container">
+		  <!-- Additional links Grid Section -->
+		  <section id="participate">
+		      <div class="container">
+		          <div class="row">
 
-<% if user_signed_in? %>
-	<div class="container">
-    <!-- Additional links Grid Section -->
+								<span class="right" >Signed in as <%= current_user.email %>.&nbsp;Not you?&nbsp;    <%=link_to 'Administration', '#' if current_user.try(:is_admin?)%> </span>
 
-    <section id="participate">
-        <div class="container">
-            <div class="row">
-
-							<span class="right" >Signed in as <%= current_user.email %>.&nbsp;Not you?&nbsp;    <%=link_to 'Administration', '#' if current_user.try(:is_admin?)%> </span>
-
-            </div>
-        </div>
-    </section>
-
-  </div>
-<% end %>	
-
-
-	<div class="container">
-    <!-- Additional links Grid Section -->
-    <section >
-        <div class="container">
-					<%= yield %>
-        </div>
-    </section>
-  </div>
-
-
+		          </div>
+		      </div>
+		  </section>
+		</div>
+		<% end %>
+		<%= yield %>
     <!-- Footer -->
     <footer class="text-center">
         <div class="footer-above">
