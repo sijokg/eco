@@ -9,7 +9,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :image
       t.references :status, index: true
 
-      t.timestamps
+      t.timestamps null: false
     end
 	add_index :events, :name, unique:true
   end

@@ -39,7 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :timezone
       t.boolean :admin, defaul: false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :users, :email,                :unique => true
