@@ -29,5 +29,15 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
     # end
+    section "Latest Events" do
+      table_for Event.order('from_date desc').limit(5) do
+        column :name do |event|
+          link_to event.name, [:admin, event]
+        end
+        column :from_date
+        column :to_date
+      end
+      strong {link_to 'View all Events', admin_events_path}
+    end
   end # content
 end
