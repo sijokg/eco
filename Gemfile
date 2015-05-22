@@ -30,6 +30,10 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.5.0'
+
+#For admin interface
+gem 'activeadmin', '~> 1.0.0.pre1'
+
 group :development, :test do
   #gem 'debugger'
   gem "capybara"
