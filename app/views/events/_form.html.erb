@@ -1,45 +1,22 @@
-<%= form_for(@event) do |f| %>
-  <%#= if @event.errors.any? %>
-    <!--<div id="error_explanation">
-      <h2><%#= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<%= simple_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@event[:name]) %>
+  <%= f.input :title %>
+  <%= error_span(@event[:title]) %>
+  <%= f.input :description %>
+  <%= error_span(@event[:description]) %>
+  <%= f.input :from_date , as: :datetime, start_year: Date.today.year,
+                              end_year: Date.today.year + 1%>
+  <%= error_span(@event[:from_date]) %>
+  <%= f.input :to_date , as: :datetime, start_year: Date.today.year,
+                              end_year: Date.today.year + 1%>
+  <%= error_span(@event[:to_date]) %>
+  <%= f.input :image, as: :file %>
+  <%= error_span(@event[:image]) %>
+  <%= f.input :status_id %>
+  <%= error_span(@event[:status_id]) %>
 
-      <ul>
-      <%#= @event.errors.full_messages.each do |message| %>
-        <li><%#= message %></li>
-      <%#= end %>
-      </ul>
-    </div>-->
-  <%#= end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :from_date %><br>
-    <%= f.datetime_select :from_date %>
-  </div>
-  <div class="field">
-    <%= f.label :to_date %><br>
-    <%= f.datetime_select :to_date %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :status_id %><br>
-    <%= f.text_field :status_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                events_path, :class => 'btn btn-default' %>
 <% end %>
