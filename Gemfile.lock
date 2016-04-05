@@ -365,6 +365,3 @@ DEPENDENCIES
   uglifier (~> 2.1.2)
   web-console
   yard
-
-BUNDLED WITH
-   1.10.3

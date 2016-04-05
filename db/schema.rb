@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20150522063235) do
     t.datetime "to_date"
     t.string   "image"
     t.integer  "status_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "events", ["name"], name: "index_events_on_name", unique: true, using: :btree
@@ -71,15 +71,15 @@ ActiveRecord::Schema.define(version: 20150522063235) do
     t.integer  "user_id"
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name",        null: false
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,8 +99,8 @@ ActiveRecord::Schema.define(version: 20150522063235) do
     t.string   "lastname"
     t.string   "timezone"
     t.boolean  "admin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
