@@ -20,7 +20,7 @@ describe "events/edit" do
       assert_select "input#event_title[name=?]", "event[title]"
       assert_select "textarea#event_description[name=?]", "event[description]"
       assert_select "input#event_image[name=?]", "event[image]"
-      assert_select "input#event_status[name=?]", "event[status]"
+      assert_select "input#event_status[name=?]", "event[status_id]"
     end
   end
 end

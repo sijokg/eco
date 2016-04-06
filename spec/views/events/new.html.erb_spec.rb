@@ -7,7 +7,9 @@ describe "events/new" do
       :title => "MyString",
       :description => "MyText",
       :image => "MyString",
-      :status => nil
+      :status_id => nil,
+      :from_date => DateTime.now,
+      :to_date => DateTime.now
     ).as_new_record)
   end
 
@@ -20,7 +22,7 @@ describe "events/new" do
       assert_select "input#event_title[name=?]", "event[title]"
       assert_select "textarea#event_description[name=?]", "event[description]"
       assert_select "input#event_image[name=?]", "event[image]"
-      assert_select "input#event_status[name=?]", "event[status]"
+      assert_select "input#event_status_id[name=?]", "event[status_id]"
     end
   end
 end
