@@ -48,3 +48,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Serializer
 gem 'active_model_serializers'
+#Cross Origin resource sharing
+gem 'rack-cors'
