@@ -41,6 +41,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'selenium-webdriver'
+  gem 'ffaker'
 end
 
 
@@ -50,3 +51,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'active_model_serializers', '~> 0.10.0.rc5'
 #Cross Origin resource sharing
 gem 'rack-cors'
+#Authentication
+gem "devise", '~> 4.1'
